@@ -1,0 +1,97 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp"
+    tools:context=".Login">
+
+    <TextView
+        android:text = "@string/start"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center_horizontal" />
+    <!--android:textColor="@color/....."-->
+    <!--android:textSize="......."-->
+
+    <TextView
+        android:text = "@string/name"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+
+    <EditText
+        android:inputType="textPersonName"
+        android:id="@+id/prompt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:text = "@string/password"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/prompt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:text = "@string/password_help"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColorHighlight="@color/bright_foreground_inverse_material_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/material_deep_teal_200" />
+
+    <TextView
+        android:text = "@string/class_num"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/prompt_classnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+
+    <Button
+        android:id="@+id/Register"
+        android:text="@string/done"
+        android:layout_marginBottom="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:contentDescription="@string/app_logo"
+        android:src="@drawable/logopic"
+        android:paddingTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+</LinearLayout>

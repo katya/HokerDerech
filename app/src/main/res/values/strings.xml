@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">HokerDerech</string>
+    <string name="main_title">Our Laboratories</string>
+    <string name="send_button">Send</string>
+    <string name="bt_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="laboratories">
+        <item>Popcorn</item>
+        <item>Milk\'n\'Tee</item>
+        <item>Something Interesting1</item>
+        <item>Something Interesting2</item>
+    </string-array>
+    <!-- Strings related to login -->
+
+        <string name="experiment">Let\'s Experiment!</string>
+        <string name="name">Name</string>
+        <string name="password">Password</string>
+        <string name="login">Login</string>
+        <string name="class_num">Class</string>
+        <string name="logout">Logout</string>
+        <string name="password_help">Choose Something You\'ll Remember!</string>
+        <string name="start">Let\'s Get Started!</string>
+        <string name="done">OK I\'m Done, Let\'s Go!</string>
+        <string name="seeya">See You Next Time!</string>
+        <string name="title_activity_register">Register</string>
+        <string name="title_activity_main">Main</string>
+        <string name="app_logo">App Logo</string>
+        <string name="title_activity_form">Form</string>
+        <string name="res">My Results</string>
+        <string name="title1">Check One</string>
+        <string name="title2">Check Two</string>
+        <string name="title3">Check Three</string>
+        <string name="title4">Check Four</string>
+        <string name="title5">Check Five</string>
+
+        <string name="hello_world">Hello world!</string>
+    </resources>
