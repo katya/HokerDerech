@@ -2,15 +2,23 @@ package com.example.katya.hokerderech;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.katya.myapplication.backend.myApi.MyApi;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
+import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
@@ -42,8 +50,8 @@ public class DetailActivity extends Activity{
 
     Button send;
     private HttpURLConnection conn;
-    HttpClient client;
-    HttpPost post;
+    // for tests:
+    private static MyApi myApiService = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,40 +60,43 @@ public class DetailActivity extends Activity{
     }
 
     public void sendResultsToServer(View vew) {
-//        //openConnection();
-//        client = new DefaultHttpClient();
-//        String url="http://172.22.64.156:8000/";
-//        post = new HttpPost(url);
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Milk & Tea"));
+//        openConnection();
 //        new LabResults().execute();
 
-        Toast.makeText(DetailActivity.this, "Sending results to Server", Toast.LENGTH_SHORT).show();
         Log.v("DetailActivity", "sendResultToServer()");
     }
 
     private void openConnection(){
-//        try {
-//            URL url = new URL("http://httpbin.org/");
-//            conn = (HttpURLConnection) url.openConnection();
-//            conn.setRequestMethod("POST");
-//        }
-//        catch(Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            URL url = new URL("http://httpbin.org/");
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
     private class LabResults extends AsyncTask<String, Void, JSONObject> {
 
         ProgressDialog dialog = ProgressDialog.show(DetailActivity.this, "", "Sending data, Please wait...");
+        HttpClient client;
+        HttpPost post;
 
         @Override
         protected JSONObject doInBackground(String... params) {
             Log.i("Thread", "Sending Result to Server");
 
             try{
+                client = new DefaultHttpClient();
+                String url="http://172.22.64.156:8000/";
+                post = new HttpPost(url);
+
                 String key = "axis";
                 String value = "100";
-                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                List<NameValuePair> pairs = new ArrayList<>();
                 pairs.add(new BasicNameValuePair(key, value));
                 post.setEntity(new UrlEncodedFormEntity(pairs));
                 HttpResponse response = client.execute(post);
@@ -122,6 +133,50 @@ public class DetailActivity extends Activity{
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    // backend class for tests:
+
+    class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+
+        private Context context;
+        //ProgressDialog dialog = ProgressDialog.show(DetailActivity.this, "", "Sending data, Please wait...");
+
+        @Override
+        protected String doInBackground(Pair<Context, String>... params) {
+            if(myApiService == null) {  // Only do this once
+                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
+                        new AndroidJsonFactory(), null)
+                        // options for running against local devappserver
+                        // - 10.0.2.2 is localhost's IP address in Android emulator
+                        // - turn off compression when running against local devappserver
+                        .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+                        .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                            @Override
+                            public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                                abstractGoogleClientRequest.setDisableGZipContent(true);
+                            }
+                        });
+                // end options for devappserver
+
+                myApiService = builder.build();
+            }
+
+            context = params[0].first;
+            String name = params[0].second;
+
+            try {
+                //return myApiService.sayHi(name).execute().getData();
+                return myApiService.setForm(name).execute().getData();
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         }
     }
 //
