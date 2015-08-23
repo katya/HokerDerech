@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:useDefaultMargins="true"
+        android:onClick="sendResultsToServer">
+        <CheckBox
+            android:id="@+id/title_check"
+            android:layout_column="0"
+            android:layout_row="0"
+            />
+        <TextView
+            android:text="@string/titleX"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:textSize="20dp"
+            android:layout_column = "1"
+            android:layout_row="0"
+            android:textColor="@color/material_deep_teal_200"
+            android:textStyle="normal"
+            android:typeface="serif"
+            android:id="@+id/lab_titleX"/>
+        <TextView
+            android:text="@string/titleY"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:textSize="20dp"
+            android:layout_column = "2"
+            android:layout_row="0"
+            android:textColor="@color/material_deep_teal_200"
+            android:textStyle="normal"
+            android:typeface="serif"
+            android:id="@+id/lab_titleY"/>
+    </GridLayout>

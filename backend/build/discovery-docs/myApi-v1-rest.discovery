@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/3k-AqQI2ISnwMacCWg9XLP6l6Yc\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/-sNlALwZMtblNjcQXu-crHCjv_E\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -84,6 +84,48 @@
   }
  },
  "methods": {
+  "createForm": {
+   "id": "myApi.createForm",
+   "path": "createForm/{labForm}",
+   "httpMethod": "POST",
+   "parameters": {
+    "labForm": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "labForm"
+   ],
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getForm": {
+   "id": "myApi.getForm",
+   "path": "mybean/{formName}",
+   "httpMethod": "GET",
+   "parameters": {
+    "formName": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "formName"
+   ],
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "sayHi": {
    "id": "myApi.sayHi",
    "path": "sayHi/{name}",
@@ -105,19 +147,25 @@
     "https://www.googleapis.com/auth/userinfo.email"
    ]
   },
-  "setForm": {
-   "id": "myApi.setForm",
-   "path": "setForm/{formName}",
+  "sendResults": {
+   "id": "myApi.sendResults",
+   "path": "sendResults/{formName}/{groupName}",
    "httpMethod": "POST",
    "parameters": {
     "formName": {
      "type": "string",
      "required": true,
      "location": "path"
+    },
+    "groupName": {
+     "type": "string",
+     "required": true,
+     "location": "path"
     }
    },
    "parameterOrder": [
-    "formName"
+    "formName",
+    "groupName"
    ],
    "response": {
     "$ref": "MyBean"

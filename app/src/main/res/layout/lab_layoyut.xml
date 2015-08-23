@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:paddingTop="5dp"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textColor="@color/material_deep_teal_200"
         android:textStyle="bold"
         android:typeface="serif"
@@ -16,164 +16,68 @@
         android:gravity="center"
         android:id="@+id/lab_title"
         />
-
-    <GridLayout
-        android:paddingTop="0dp"
-        android:layout_width="320dp"
-        android:layout_height="250dp"
-        android:id="@+id/gridLayout"
-        android:useDefaultMargins="true"
-        android:columnCount="3"
-        android:rowCount="6"
-        android:layout_above="@+id/btn_send"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+    <include layout="@layout/result_table_title"
         android:layout_below="@+id/lab_title"
-        android:onClick="sendResultsToServer">
-
-        <TextView
-            android:text="@string/title1"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:paddingTop="0dp"
-            android:textSize="20dp"
-            android:layout_column = "0"
-            android:layout_row="0"
-            android:textColor="@color/material_deep_teal_200"
-            android:textStyle="normal"
-            android:typeface="serif"/>
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/prompt_username"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="0dp"
-            android:layout_row="0"
-            android:layout_column="1" />
-
-        <TextView
-            android:text="@string/title2"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:paddingTop="0dp"
-            android:textSize="20dp"
-            android:layout_column = "0"
-            android:layout_row="1"
-            android:textColor="@color/material_deep_teal_200"
-            android:textStyle="normal"
-            android:typeface="serif"/>
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/prompt_username2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
-            android:layout_row="2"
-            android:layout_column="1" />
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/editText"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
-            android:layout_row="2"
-            android:layout_column="2" />
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/editText2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
-            android:layout_row="1"
-            android:layout_column="1" />
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/editText3"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
-            android:layout_row="1"
-            android:layout_column="2" />
-
-        <TextView
-            android:text="@string/title3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="0dp"
-            android:textSize="20dp"
-            android:layout_column = "0"
-            android:layout_row="2"
-            android:textColor="@color/material_deep_teal_200"
-            android:textStyle="normal"
-            android:typeface="serif"
-            android:id="@+id/title3" />
-
-
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/prompt_username1"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
-            android:layout_row="0"
-            android:layout_column="2" />
-    </GridLayout>
-
+        android:layout_height="30dp"
+        android:layout_width="fill_parent"
+        android:id="@+id/header_table"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:id="@+id/row_lab"
+        android:layout="@layout/lab_table_row"
+        android:layout_below="@id/header_table"
+        android:layout_height="200dp">
+    </ListView>
     <Button
-        android:clickable="true"
-        android:id="@+id/btn_send"
+          android:id="@+id/btn_send"
         android:paddingTop="0dp"
-        android:layout_gravity="center_horizontal"
         android:src="@drawable/sendme"
         android:contentDescription="@string/app_logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/sendme"
-        android:layout_alignLeft="@+id/gridLayout"
-        android:layout_alignStart="@+id/gridLayout"
-        android:onClick="sendResultsToServer"/>
+        android:onClick="sendResultsToServer"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/row_lab"/>
 
-    <ImageView
-        android:paddingTop="10dp"
-        android:src="@drawable/done"
-        android:contentDescription="@string/app_logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView"
-        android:layout_alignTop="@+id/gridLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:paddingTop="0dp"
-        android:layout_gravity=""
-        android:src="@drawable/square"
-        android:contentDescription="@string/app_logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView2"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:paddingTop="0dp"
-        android:layout_gravity=""
-        android:src="@drawable/square"
-        android:contentDescription="@string/app_logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <!--<ImageView-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:src="@drawable/done"-->
+        <!--android:contentDescription="@string/app_logo"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_alignTop="@+id/gridLayout"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <!--<ImageView-->
+        <!--android:paddingTop="0dp"-->
+        <!--android:layout_gravity=""-->
+        <!--android:src="@drawable/square"-->
+        <!--android:contentDescription="@string/app_logo"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:id="@+id/imageView2"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:layout_below="@+id/imageView"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <!--<ImageView-->
+        <!--android:paddingTop="0dp"-->
+        <!--android:layout_gravity=""-->
+        <!--android:src="@drawable/square"-->
+        <!--android:contentDescription="@string/app_logo"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:id="@+id/imageView3"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 
 
     <!--<ImageButton-->

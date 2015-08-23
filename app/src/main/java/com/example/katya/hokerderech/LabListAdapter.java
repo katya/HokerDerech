@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.katya.hokerderech.LabModel.LaboratoryModel;
 
 /**
  * Created by Katya on 8/14/15.
@@ -15,7 +16,7 @@ public class LabListAdapter extends BaseAdapter{
 
     Context context;
     LaboratoryModel model;
-    private static LayoutInflater inflater = null;
+    protected static LayoutInflater inflater = null;
 
 
     public LabListAdapter(LaboratoryModel model) {

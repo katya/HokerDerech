@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.katya.hokerderech.LabModel.LabUser;
+
 public class Login extends AppCompatActivity {
 
     Button Login;

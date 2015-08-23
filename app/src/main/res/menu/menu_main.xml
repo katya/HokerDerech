@@ -27,4 +27,12 @@
         android:title="Create"
         android:icon="@drawable/logopic_color_360"
         app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/remove_lab"
+        android:orderInCategory="400"
+        android:title="Remove"
+        android:icon="@drawable/logopic_color_360"
+        app:showAsAction="ifRoom">
+
+    </item>
 </menu>

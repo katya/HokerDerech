@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/3k-AqQI2ISnwMacCWg9XLP6l6Yc\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/-sNlALwZMtblNjcQXu-crHCjv_E\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -82,6 +82,43 @@
   }
  },
  "methods": {
+  "myApi.createForm": {
+   "id": "myApi.createForm",
+   "parameters": {
+    "labForm": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "labForm"
+   ],
+   "returns": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.getForm": {
+   "id": "myApi.getForm",
+   "allowGet": true,
+   "parameters": {
+    "formName": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "formName"
+   ],
+   "returns": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "myApi.sayHi": {
    "id": "myApi.sayHi",
    "parameters": {
@@ -100,16 +137,21 @@
     "https://www.googleapis.com/auth/userinfo.email"
    ]
   },
-  "myApi.setForm": {
-   "id": "myApi.setForm",
+  "myApi.sendResults": {
+   "id": "myApi.sendResults",
    "parameters": {
     "formName": {
+     "type": "string",
+     "required": true
+    },
+    "groupName": {
      "type": "string",
      "required": true
     }
    },
    "parameterOrder": [
-    "formName"
+    "formName",
+    "groupName"
    ],
    "returns": {
     "$ref": "MyBean"

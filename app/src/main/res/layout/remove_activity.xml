@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        ></include>
+
+    <ListView
+        android:id="@+id/listViewRemove"
+        android:layout_below="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout="@layout/lab_item_remove"
+        />
+    <Button
+        android:id="@+id/btn_send"
+        android:paddingTop="0dp"
+        android:src="@drawable/sendme"
+        android:contentDescription="@string/app_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/remove_button"
+        android:onClick="removeLaboratories"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/listViewRemove"/>
+</RelativeLayout>
